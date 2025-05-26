@@ -10,9 +10,9 @@ import AdminDashboard from './components/AdminDashboard';
 import MessageBox from './components/MessageBox';
 import OrderTracking from './components/OrderTracking'; 
 
-// Import local image assets
-import roseImage from './assets/rose.png'; // Adjust path if assets is in a different location relative to App.tsx
-import sunflowerImage from './assets/sunflower.png'; // Adjust path if assets is in a different location relative to App.tsx
+// Import image assets
+import roseImage from './assets/rose.png';
+import sunflowerImage from './assets/sunflower.png'; 
 
 
 // Define interfaces for data structures (consider moving these to a separate types file like src/types.ts)
@@ -45,7 +45,7 @@ interface Order {
     status: 'Pending' | 'Completed';
 }
 
-// --- Simulated Backend Data (remains in App for now) ---
+// --- Simulated Backend Data (temporarily in App) ---
 
 // Initial Stock Levels
 const initialStock: Stock = {
@@ -94,6 +94,7 @@ const adminPass = '2025';
 
 // --- Main App Component ---
 const App: React.FC = () => {
+    const currentYear = new Date().getFullYear();
     // --- State Management (remains in App as it's shared across components) ---
     const [cart, setCart] = useState<CartItem[]>([]);
     const [orders, setOrders] = useState<Order[]>([]);
@@ -335,7 +336,7 @@ const App: React.FC = () => {
             </main>
 
             <footer className="bg-gray-800 text-white p-6 text-center mt-12 rounded-t-lg">
-                <p>&copy; 2023 DNAFloraison. All rights reserved.</p>
+                <p>&copy; {currentYear} DNAFloraison. All rights reserved.</p>
             </footer>
         </div>
     );
